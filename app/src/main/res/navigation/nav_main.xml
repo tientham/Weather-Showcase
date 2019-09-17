@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main.xml"
+    app:startDestination="@id/main_fragment">
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.tientham.weather.ui.MainFragment"
+        android:label="Main Fragment"
+        tools:layout="@layout/main_fragment">
+        <action
+            android:id="@+id/action_main_fragment_to_login_fragment"
+            app:destination="@id/login_fragment"/>
+
+        <action
+            android:id="@+id/action_main_fragment_to_home_fragment"
+            app:destination="@id/home_fragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.tientham.weather.ui.login.LoginFragment"
+        android:label="Login Fragment"
+        tools:layout="@layout/login_fragment">
+
+        <action
+            android:id="@+id/action_login_fragment_to_home_fragment"
+            app:destination="@id/home_fragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.tientham.weather.ui.login.LoginFragment"
+        android:label="Home Fragment"
+        tools:layout="@layout/home_fragment">
+
+        <action
+            android:id="@+id/action_home_fragment_to_login_fragment"
+            app:destination="@id/login_fragment"/>
+
+    </fragment>
+</navigation>
