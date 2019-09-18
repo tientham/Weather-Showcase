@@ -2,6 +2,7 @@ package com.tientham.weather.ui
 
 import android.util.Log
 import com.tientham.weather.BuildConfig
+import com.tientham.weather.di.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import timber.log.Timber
