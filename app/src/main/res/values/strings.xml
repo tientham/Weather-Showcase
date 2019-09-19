@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Weather Showcase</string>
+
+    <string name="sign_in_username">Sign In</string>
+    <string name="hint_nickName">Nick Name</string>
+    <string name="hint_passWord">Password</string>
+
+    <string name="btn_login">Login</string>
+    <string name="btn_logout">Logout</string>
+    <string name="work_in_progress">Under construction..</string>
 </resources>

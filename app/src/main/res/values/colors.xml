@@ -3,4 +3,21 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="grey_light">#80E8EAF6</color>
+    <color name="grey_100">#E6E9EC</color>
+    <color name="grey_200">#D0D3D6</color>
+    <color name="grey_300">#B6B9BC</color>
+    <color name="grey_400">#A0A3A6</color>
+    <color name="grey_500">#86898C</color>
+    <color name="grey_600">#737679</color>
+    <color name="grey_700">#595C5F</color>
+    <color name="grey_800">#434649</color>
+    <color name="grey_900">#303336</color>
+
+    <color name="links">#4151fd</color>
+    <color name="nav_bar_scrim">@color/system_ui_scrim_light</color>
+    <!-- Scrim colors -->
+    <color name="system_ui_scrim_light">#2EFFFFFF</color> <!-- 18% white -->
+    <color name="system_ui_scrim_black">#B3000000</color> <!-- 70% black -->
 </resources>
