@@ -22,7 +22,8 @@ You can find following features inside this sample project:
 Notes
 ------------
 
-Application is under development and in early state of its ALPHA version.
+Application is under development and in early state of its ALPHA version.<br/>
+Weather Api is taken from: https://openweathermap.org/api.
 
 Images
 ------------

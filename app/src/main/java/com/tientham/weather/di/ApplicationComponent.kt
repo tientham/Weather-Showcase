@@ -20,7 +20,8 @@ import javax.inject.Singleton
         FragmentInjectorModule::class,
         AppInjectModule::class,
         RoomModule::class,
-        AppModule::class
+        AppModule::class,
+        NetworkModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<WeatherApplication> {
