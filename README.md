@@ -11,6 +11,7 @@ The application uses Clean Architecture based on MVVM and Repository patterns. I
 Architecture principles follow Google recommended [Guide to app architecture](https://developer.android.com/jetpack/docs/guide).
 
 You can find following features inside this sample project:
+- **KOTLIN**
 - **MVVM**
 - **ROOM DATABASE**
 - **LIVE DATA**
