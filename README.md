@@ -19,6 +19,11 @@ You can find following features inside this sample project:
 - **NAVIGATION**
 - **ANDROID X**
 
+Notes
+------------
+
+Application is under development and in early state of its ALPHA version.
+
 Images
 ------------
 
