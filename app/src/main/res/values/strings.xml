@@ -8,4 +8,7 @@
     <string name="btn_login">Login</string>
     <string name="btn_logout">Logout</string>
     <string name="work_in_progress">Under construction..</string>
+
+    <!-- ERROR -->
+    <string name="error_missing_username">username is missing</string>
 </resources>

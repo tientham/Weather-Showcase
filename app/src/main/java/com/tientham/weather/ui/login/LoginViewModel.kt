@@ -1,10 +1,7 @@
 package com.tientham.weather.ui.login
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 
 /**
  * Created by tientham (tien.tominh@gmail.com) on 2019-09-17.
@@ -12,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 class LoginViewModel: AndroidViewModel {
 
     private var isLoading = MutableLiveData<Boolean>()
+
 
     constructor(application: Application): super(application) {
         this.isLoading.postValue(false)
