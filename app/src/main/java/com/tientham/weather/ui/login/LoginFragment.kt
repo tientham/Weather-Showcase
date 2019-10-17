@@ -10,25 +10,24 @@ import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.navigation.fragment.NavHostFragment
 import com.tientham.weather.R
 import com.tientham.weather.databinding.LoginFragmentBinding
-import timber.log.Timber
+import dagger.android.support.DaggerFragment
 
 /**
  * Created by tientham (tien.tominh@gmail.com) on 2019-09-17.
  */
-class LoginFragment: Fragment() {
+class LoginFragment: DaggerFragment() {
 
-    private lateinit var mViewModel: LoginViewModel
+    private val mViewModel: LoginViewModel by viewModels { SavedStateViewModelFactory(requireActivity().application, this) }
     private lateinit var mBinding: LoginFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mBinding = LoginFragmentBinding.inflate(inflater)
-        mBinding.lifecycleOwner = this
+        mBinding = LoginFragmentBinding.inflate(inflater).apply { lifecycleOwner = this@LoginFragment }
         return mBinding.root
     }
 
@@ -36,7 +35,6 @@ class LoginFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val app = activity!!.application
-        mViewModel = ViewModelProvider(this, LoginViewModel.Factory(app)).get(LoginViewModel::class.java)
         mBinding.viewmodel = mViewModel
 
         mViewModel.getIsLoading().observe(this, Observer {

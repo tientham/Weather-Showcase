@@ -8,13 +8,14 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.work.WorkManager
 import com.tientham.weather.data.repository.PreferenceRepository
 import com.tientham.weather.databinding.MainFragmentBinding
+import dagger.android.support.DaggerFragment
 import timber.log.Timber
 import javax.inject.Inject
 
 /**
  * Created by tientham (tien.tominh@gmail.com) on 2019-09-17.
  */
-class MainFragment : BaseFragment() {
+class MainFragment : DaggerFragment() {
 
     @Inject internal lateinit var prefs : PreferenceRepository
 

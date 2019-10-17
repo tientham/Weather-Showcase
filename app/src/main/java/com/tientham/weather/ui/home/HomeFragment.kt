@@ -5,23 +5,23 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.tientham.weather.databinding.HomeFragmentBinding
 import androidx.lifecycle.Observer
+import androidx.lifecycle.SavedStateViewModelFactory
+import dagger.android.support.DaggerFragment
 
 /**
  * Created by tientham (tien.tominh@gmail.com) on 2019-09-17.
  */
-class HomeFragment: Fragment() {
+class HomeFragment: DaggerFragment() {
 
-    private lateinit var mViewModel: HomeViewModel
+    private val mViewModel: HomeViewModel by viewModels { SavedStateViewModelFactory(requireActivity().application, this) }
     private lateinit var mBinding: HomeFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mBinding = HomeFragmentBinding.inflate(inflater)
-        mBinding.lifecycleOwner = this
+        mBinding = HomeFragmentBinding.inflate(inflater).apply { lifecycleOwner = this@HomeFragment }
         return mBinding.root
     }
 
@@ -29,7 +29,6 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val app = activity!!.application
-        mViewModel = ViewModelProvider(this, HomeViewModel.Factory(app)).get(HomeViewModel::class.java)
         mBinding.viewmodel = mViewModel
 
         mViewModel.getIsLoading().observe(this, Observer {
