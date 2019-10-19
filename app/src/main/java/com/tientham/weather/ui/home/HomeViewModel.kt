@@ -31,7 +31,7 @@ class HomeViewModel: ViewModel() {
     private fun createItems(weathers: List<Weather>): List<WeatherSelectionItemModel> {
         val items: ArrayList<WeatherSelectionItemModel> = ArrayList()
         for (item in weathers) {
-            items.add(WeatherSelectionItemModel(item.id, item.city, item.status, item.degree))
+            items.add(WeatherSelectionItemModel(item.id, item.city, item.status, item.degree, item.photo))
         }
 
         return items

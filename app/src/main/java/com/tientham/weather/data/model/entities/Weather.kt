@@ -1,6 +1,5 @@
 package com.tientham.weather.data.model.entities
 
-import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -13,5 +12,6 @@ data class Weather(
     @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     @field:ColumnInfo(name = "city") var city: String,
     @field:ColumnInfo(name = "status") var status: String,
-    @field:ColumnInfo(name = "degree") var degree: String
+    @field:ColumnInfo(name = "degree") var degree: String,
+    @field:ColumnInfo(name = "photo") var photo: String
 )

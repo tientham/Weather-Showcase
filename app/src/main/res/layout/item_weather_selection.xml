@@ -1,36 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.tientham.weather.utils.Utility"/>
         <variable
             name="viewModel"
             type="com.tientham.weather.ui.home.WeatherSelectionItemModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
         android:layout_margin="15dp">
 
         <ImageView
-            android:layout_width="175dp"
-            android:layout_height="175dp"
-            android:background="@mipmap/ic_launcher"
-            android:textSize="20sp"
-            android:padding="20dp"
+            android:id="@+id/imgCity"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:contentDescription="@string/app_name"
             tools:src="@mipmap/ic_launcher"/>
 
         <TextView
+            android:id="@+id/tvCity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.city}"
             android:textStyle="bold"
-            tools:text="City name"
+            android:layout_below="@id/imgCity"
+            tools:text="Moscow"
             android:textSize="20sp"
             android:layout_margin="10dp"/>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="150dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/margin_large">
+
+            <ImageView
+                android:id="@+id/imgStatus"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:contentDescription="@string/app_name"
+                android:src="@{Utility.getStatusImage(context, viewModel.status)}"
+                tools:src="@drawable/status_snow"/>
+
+            <TextView
+                android:id="@+id/tvDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@{viewModel.degree}"
+                android:textSize="20sp"
+                tools:text="-3 C"/>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
 </layout>

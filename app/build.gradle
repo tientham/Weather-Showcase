@@ -115,6 +115,9 @@ dependencies {
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
 
+    // PICASSO
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     // Core library - UI Tests
     androidTestImplementation "androidx.test:core:$test_version"
 
