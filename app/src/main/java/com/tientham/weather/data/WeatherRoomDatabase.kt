@@ -20,7 +20,7 @@ import com.tientham.weather.data.model.entities.Weather
 )
 abstract class WeatherRoomDatabase : RoomDatabase() {
 
-    public abstract fun userDao(): UserDao
+    abstract fun userDao(): UserDao
 
-    public abstract fun weatherDao(): WeatherDao
+    abstract fun weatherDao(): WeatherDao
 }

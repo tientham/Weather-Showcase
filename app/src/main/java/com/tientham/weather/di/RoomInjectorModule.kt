@@ -6,14 +6,14 @@ import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
 /**
- * Created by tientham (tien.tominh@gmail.com) on 2019-09-18.
+ * Created by tientham (tien.tominh@gmail.com) on 2019-10-19.
  */
 @Module
-interface AppInjectModule {
+interface RoomInjectorModule {
+
+    @ContributesAndroidInjector
+    fun injectWeatherRepository(): WeatherRepository
 
     @ContributesAndroidInjector
     fun injectUserRepository() : UserRepository
-
-    @ContributesAndroidInjector
-    fun injectWeatherRepository() : WeatherRepository
 }

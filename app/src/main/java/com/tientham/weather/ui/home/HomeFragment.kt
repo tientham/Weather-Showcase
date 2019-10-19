@@ -10,6 +10,10 @@ import androidx.navigation.fragment.NavHostFragment
 import com.tientham.weather.databinding.HomeFragmentBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.SavedStateViewModelFactory
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import com.tientham.weather.utils.ItemClickSupport
 import dagger.android.support.DaggerFragment
 
 /**
@@ -19,6 +23,7 @@ class HomeFragment: DaggerFragment() {
 
     private val mViewModel: HomeViewModel by viewModels { SavedStateViewModelFactory(requireActivity().application, this) }
     private lateinit var mBinding: HomeFragmentBinding
+    private lateinit var mAdapter: WeatherSelectionAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mBinding = HomeFragmentBinding.inflate(inflater).apply { lifecycleOwner = this@HomeFragment }
@@ -28,8 +33,18 @@ class HomeFragment: DaggerFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val app = activity!!.application
         mBinding.viewmodel = mViewModel
+
+        mAdapter = WeatherSelectionAdapter()
+        mBinding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            adapter = mAdapter
+        }
+
+        mViewModel.getWeathers(requireContext()).observe(viewLifecycleOwner, Observer {
+            mAdapter.submitList(it)
+            mAdapter.notifyDataSetChanged()
+        })
 
         mViewModel.getIsLoading().observe(this, Observer {
             if (it) {
@@ -41,6 +56,14 @@ class HomeFragment: DaggerFragment() {
 
         mBinding.btnLogout.setOnClickListener {
             mViewModel.getIsLoading().postValue(true)
+        }
+
+        ItemClickSupport.addTo(mBinding.recyclerView)!!.setOnItemClickListener(weathersItemClickSupport)
+    }
+
+    private val weathersItemClickSupport = object : ItemClickSupport.OnItemClickListener {
+        override fun onItemClicked(recyclerView: RecyclerView, position: Int, v: View) {
+            Snackbar.make(v, "Item clicked!", Snackbar.LENGTH_SHORT).show()
         }
     }
 

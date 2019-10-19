@@ -8,17 +8,10 @@ import androidx.room.PrimaryKey
 /**
  * Created by tientham (tien.tominh@gmail.com) on 2019-09-19.
  */
-@Keep
 @Entity(tableName = "weather")
-class Weather(
-    @field:ColumnInfo var city: String
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0
-
-    @ColumnInfo
-    var status: String? = null
-
-    @ColumnInfo
-    var degree: String? = null
-}
+data class Weather(
+    @PrimaryKey @ColumnInfo(name = "id") val id: Int,
+    @field:ColumnInfo(name = "city") var city: String,
+    @field:ColumnInfo(name = "status") var status: String,
+    @field:ColumnInfo(name = "degree") var degree: String
+)

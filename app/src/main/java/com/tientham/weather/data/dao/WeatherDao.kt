@@ -1,5 +1,6 @@
 package com.tientham.weather.data.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.tientham.weather.data.model.entities.Weather
 
@@ -20,4 +21,7 @@ interface WeatherDao {
 
     @Query("SELECT * FROM weather where city = :city")
     fun getWeatherByCity(city: String): Weather
+
+    @Query("SELECT * FROM weather")
+    fun getWeathers(): LiveData<List<Weather>>
 }

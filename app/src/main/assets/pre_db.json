@@ -1,0 +1,32 @@
+[
+  {
+    "city": "London",
+    "status": "sunny",
+    "degree": "26 C"
+  },
+  {
+    "city": "Hanoi",
+    "status": "sunny",
+    "degree": "30 C"
+  },
+  {
+    "city": "Torino",
+    "status": "rain",
+    "degree": "26 C"
+  },
+  {
+    "city": "Paris",
+    "status": "cloudy",
+    "degree": "32 C"
+  },
+  {
+    "city": "Berlin",
+    "status": "sunny",
+    "degree": "27 C"
+  },
+  {
+    "city": "Moscow",
+    "status": "snow",
+    "degree": "12 C"
+  }
+]
